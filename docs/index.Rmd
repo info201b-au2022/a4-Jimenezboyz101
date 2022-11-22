@@ -1,6 +1,6 @@
 ---
-title: "Your A4 Report Title (TODO: Revise title)"
-author: "Your Name"
+title: "The Problem with the Prison System"
+author: "Oswaldo Jimenez"
 date: '2022-11-01'
 output: html_document
 ---
@@ -11,35 +11,29 @@ source("../source/analysis.R")
 ```
 
 ## Abstract 
-[TODO: Include a short abstract (about 50 words)]
+The modern day prison system that millions are currently forced through is one that is full of prejudice where the inmates are treated unfairly from the time they are first questioned by the police to being put into a prison, due to the color of their skin.
 
-# Test (TODO: Remove before submission!!)
-```{r echo=FALSE}
-q1_string <- test_query1()
-num <- 5
-```
-As you know, this is a markdown report. The [R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) is **useful!**
-
-* Here's a test of a dynamic variable. Say **"`r q1_string`!!!** 
-* Here's another test. A vector
-of numbers: `r test_query2(num)`.
-
-Recall that _{r echo=TRUE}_ can be used to display the code, 
-which is very useful when developing and debugging a report. Here's an example: 
-
-```{r echo=TRUE}
-num <- 5
-sum <- sum(test_query2(num))
-print(sum)
-```
 
 ## Introduction 
-[TODO]
+In this report my goal is to showcase some of the faults and prejudices that are present in our modern incarceration system. The direct stakeholders in this report are the prisoners being talked about and recorded in this data set, those who would be considered indirect stakeholders in this are those who are the families of the inmates and anyone with attachment to the prison system. The main questions i want to ask in this are, what is the proportion of colored to white prisoners? are we currently seeing an uptick in colored peoples incarceration numbers? what percent of the prisoners are african american? For all intents and purposes in my report today, modern is going to be considered 2018 as that is the newest data I have. Too often today we see more and more cases of the police putting people unjustly in prison and we see them usually commiting these things to those of color far more often than white people. 
 
 ## Data Summary 
-[TODO]
+To start off when we are trying to see the inequalities present in the modern day system one of the best ways to do this is to look at the proportion of colored inmates to white inmates, when we look at our data set we find that the average proportion of inmates that are colored to inmates that are white in the U.S is 4.61:1, this number tells us that on average there are far more people of color being held in prisons than white people. The number also gives us a hint toward one of the prejudices of the officers themselves and who they watch to arrest. 
+Another good way to see if the modern incarceration system is problematic is to see if there are more colored people being arrested now than there were 20 years ago, when filtering through the data we see that there has been an increase in the amount of incarcerations of colored people now compared to 20 years ago. We see that theres an increase of ~ 2%, that number may not sound like a lot but when you're thinking about the size of our numbers that 2% becomes worth a lot more.
+The last main point I'd like to look at here is seeing if the amount of black inmates has increased in the last 20 years, again looking back to our data we see that there is in fact an average increase of 240 black prisoners in every county. Keeping in mind the previous statistics we've discussed this is following the patter in increased arrests of people of color, and this number specifically shows us the increased arrests on the black community.
 
-[TODO ... other sections ... See Canvas for details]
 
-_All the very best with your work!_
 
+## Growth of the U.S Prison Population
+When we are looking at the U.S prison population and try to find trends in the population growth over time, one of the best ways to do this is by creating a chart showing the growth over the years. 
+```{r growth, fig.width=10, fig.height=5, fig.cap= "Here we can see the year over year growth in prison inmates", echo=FALSE}
+ggplotly(plot_jail_pop_for_us())
+```
+Pictured above we see the graph of prison population and we can see that as the years go on there is an exponential growth in the occupancy of these prisons. This can be attributed to a few things but when comparing the graph to the values I mentioned before in the data summary we can see a corellation between the uptick in arrests and the increase of arrests of people of color.
+
+## Growth of Prison Population by state
+When furthering our research into the current trends in the prison system it is important to look into the data at the state level too, and find what the trends are in that level. Looking at our data is one thing but visualizing it again like we did before in the state level data shows us that the prison population by state does in fact increase over time as we thought it would. The graph is pictured below. 
+``` {r growth_states, fig.width=10, fig.height=5, fig.cap= "This graph is showing the growth in prison population in these states", echo=FALSE, warning=FALSE, message=FALSE}
+ggplotly(plot_jail_pop_by_states(c("WA", "UT", "ND", "TX", "MN", "CA", "NY")))
+```
+The reasoning behind my choices is to show some examples of states with a very high growth over the years and states with relatively low growth over the years. And what we can derive from these examples is that a state like california with a very high population to begin with has still seen a big increase over the years. While states with far less of a population have still seen growth in their prison inmates, not as much as bigger states but they still have increases which corresponds with the data that was addressed earlier
